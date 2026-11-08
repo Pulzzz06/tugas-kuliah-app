@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Tugas Kuliah</title>
+    <script type="module" crossorigin src="./assets/index-C1T_4uql.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CDpC7Zse.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <h1 id="app-title">Manajemen Tugas Kuliah</h1>
+          <p>Tugas Pertemuan 6 - Manajemen Tugas Kuliah</p>
+        </div>
+        <span id="app-version" class="badge-version">v1.0.0</span>
+      </header>
+
+      <!-- Form Input Tugas -->
+      <section class="card">
+        <form id="task-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="judul">Nama Tugas</label>
+              <input type="text" id="judul" placeholder="Contoh: Laporan Praktikum 6" required />
+            </div>
+            <div class="form-group">
+              <label for="mataKuliah">Mata Kuliah</label>
+              <input type="text" id="mataKuliah" placeholder="Contoh: Pengembangan Aplikasi Web" required />
+            </div>
+            <div class="form-group">
+              <label for="deadline">Tenggat Waktu</label>
+              <input type="date" id="deadline" required />
+            </div>
+            <div class="form-group">
+              <label for="prioritas">Prioritas</label>
+              <select id="prioritas">
+                <option value="Rendah">Rendah</option>
+                <option value="Sedang" selected>Sedang</option>
+                <option value="Tinggi">Tinggi</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" id="submit-btn" class="btn-primary">Tambah Tugas</button>
+          <button type="button" id="cancel-btn" class="btn-outline" style="display: none;">Batal Edit</button>
+        </form>
+      </section>
+
+      <!-- Daftar Tugas -->
+      <section class="card">
+        <h2>Daftar Tugas Kuliah</h2>
+        <div id="task-list"></div>
+      </section>
+
+      <!-- Dokumentasi Teknis (Syarat Pengumpulan Poin 4) -->
+      <section class="card doc-section">
+        <h2>Dokumentasi Teknis Aplikasi</h2>
+        <div class="doc-grid">
+          <div>
+            <h3>1. Git & GitHub</h3>
+            <p>Digunakan sebagai Version Control System (VCS) untuk mencatat riwayat perubahan kode melalui commit, mengelola eksperimen fitur secara terpisah menggunakan branch, menggabungkan kode melalui Pull Request & Merge, serta menangani bentrokan baris kode (merge conflict).</p>
+          </div>
+          <div>
+            <h3>2. npm & Package Management</h3>
+            <p>Node Package Manager (npm) mengelola pustaka proyek melalui <code>package.json</code>. <strong>dependencies</strong> berisi pustaka yang dibutuhkan saat aplikasi berjalan di produksi, sedangkan <strong>devDependencies</strong> (seperti TypeScript dan Vite) hanya dibutuhkan saat tahap pengembangan. Versi pustaka diatur menggunakan <em>Semantic Versioning</em> (<code>MAJOR.MINOR.PATCH</code>).</p>
+          </div>
+          <div>
+            <h3>3. TypeScript</h3>
+            <p>Menambahkan sistem <em>static typing</em> di atas JavaScript. Aplikasi ini menerapkan <em>primitive types</em> (<code>string</code>, <code>number</code>, <code>boolean</code>), <code>Array</code>, <code>Interface</code> (<code>TugasKuliah</code>), <em>Union & Type Alias</em> (<code>TaskStatus</code>), serta <em>Generics</em> (<code>StorageWrapper&lt;T&gt;</code>) untuk mencegah bug tipe data sejak penulisan kode.</p>
+          </div>
+          <div>
+            <h3>4. Vite, Compiler, Transpiler, dan Bundler</h3>
+            <p>Browser tidak dapat mengeksekusi file TypeScript (<code>.ts</code>) secara langsung. Di sinilah peran alat bantu build: <strong>Compiler/Transpiler</strong> (`tsc` dan `esbuild` pada Vite) memeriksa tipe data dan menerjemahkan kode TypeScript menjadi JavaScript standar yang dipahami browser. Selanjutnya, <strong>Bundler</strong> (Rollup pada saat `npm run build`) menggabungkan, mengoptimalkan, dan memperkecil (minify) seluruh modul HTML, CSS, dan JS menjadi aset statis siap unggah di folder <code>dist/</code>.</p>
+          </div>
+          <div>
+            <h3>5. Environment Variables (.env)</h3>
+            <p>Menyimpan konfigurasi aplikasi di luar source code utama. Variabel publik diawali <code>VITE_</code> agar dapat dibaca melalui <code>import.meta.env</code>, sedangkan file <code>.env</code> dimasukkan ke <code>.gitignore</code> agar kredensial rahasia atau API key tidak bocor ke repositori publik GitHub.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
