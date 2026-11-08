@@ -32,3 +32,4 @@ export class StorageWrapper<T> {
     localStorage.setItem(this.key, JSON.stringify(items));
   }
 }
+// End of types.ts
